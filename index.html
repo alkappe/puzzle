@@ -8,32 +8,35 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,600,700" rel="stylesheet">
   <style>
     * { margin: 0; bottom: 0 }
-    html, body { background: #ebebd3}
-    #puzzle { background: #083d77; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 282px; height: 280px; display: block; touch-action: none}
-    .row { width: 100%; height: 33%; }
-    .cell { float: left; width: 32.5%; height: 99%; background: #ebebd3; margin: 1px; text-align: center; color: #083d77; font-size: 24px; font-family: 'Oswald', sans-serif; font-weight: 200; }
-    .move-bottom { transform:translateY(100%)}
+    html, body { background: #ffffff}
+    #puzzle { background-image: linear-gradient(to right top, #0059df, #0092ff, #00b8d3, #00d37c, #b2e025); position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 282px; height: 280px; display: block; touch-action: none}
+    .cell { position: absolute; width: 33%; height: 33%; background: #ffffff; margin: 1px; text-align: center; color: #083d77; font-size: 24px; font-family: 'Oswald', sans-serif; font-weight: 200; }
+    .empty { }
+    .cell-0-0 { top:0 ; left: 0 }
+    .cell-0-1 { top:0; left: 33% }
+    .cell-0-2 { top:0 ; left: 66% }
+    .cell-1-0 { top:33% ; left: 0 }
+    .cell-1-1 { top:33% ; left: 33% }
+    .cell-1-2 { top:33% ; left: 66% }
+    .cell-2-0 { top:66% ; left: 0 }
+    .cell-2-1 { top:66% ; left: 33% }
+    .cell-2-2 { top:66% ; left: 66% }
   </style>
 </head>
 <body>
   <main id="puzzle-container">
     <div id="puzzle">
-      <div class="row">
-        <div class="cell" id="c1">1</div>
-        <div class="cell" id="c2">2</div>
-        <div class="cell" id="c3">3</div>
-      </div>
+      <div class="cell cell-0-0" id="c1" data-index="1">1</div>
+      <div class="cell cell-0-1" id="c2" data-index="2">2</div>
+      <div class="cell cell-0-2" id="c3" data-index="3">3</div>
 
-      <div class="row">
-        <div class="cell" id="c4">4</div>
-        <div class="cell" id="c5">5</div>
-        <div class="cell" id="c6">6</div>
-      </div>
+      <div class="cell cell-1-0" id="c4" data-index="4">4</div>
+      <div class="cell cell-1-1" id="c5" data-index="5">5</div>
+      <div class="cell cell-1-2" id="c6" data-index="6">6</div>
 
-      <div class="row">
-        <div class="cell" id="c7">7</div>
-        <div class="cell" id="c8">8</div>
-      </div>
+      <div class="cell cell-2-0" id="c7" data-index="7">7</div>
+      <div class="cell cell-2-1" id="c8" data-index="8">8</div>
+      <div class="cell cell-2-2 empty" id="c9" data-index="9"></div>
     </div>
   </main>
   <script src="index.js"></script>

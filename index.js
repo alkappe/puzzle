@@ -1,60 +1,35 @@
 var allPieces = document.querySelectorAll('.cell')
-var sixPiece = document.querySelectorAll('.cell')[5]
-/*
-* swipe code
-*/
-var x = {};
-var y = {};
+var emptyCell = document.querySelector('.empty')
 
-document.addEventListener('touchstart', function(event) {
-  if (!x.start || x.start === 0) {
-    x.start = event.layerX || event.touches[0].pageX;
-  }
-  x.end = event.layerX || event.touches[0].pageX;
+var cell00 = document.querySelector('.cell-0-0')
+var cell01 = document.querySelector('.cell-0-1')
+var emptyCell = document.querySelector('.cell-2-2')
 
-  if (!y.start || y.start === 0) {
-    y.start = event.layerY || event.touches[0].pageY;
-  }
-  y.end = event.layerY || event.touches[0].pageY;
+allPieces.forEach(cell => cell.addEventListener('click', function () {
+  swapCells(cell)
+}))
 
-});
-
-document.addEventListener('touchmove', function(event) {
-  if (!x.start || x.start === 0) {
-    x.start = event.layerX || event.touches[0].pageX;
-  }
-  x.end = event.layerX || event.touches[0].pageX;
-
-  if (!y.start || y.start === 0) {
-    y.start = event.layerY || event.touches[0].pageY;
-  }
-  y.end = event.layerY || event.touches[0].pageY;
-
-})
-
-document.addEventListener('touchend', function(event) {
-  if (y.end < y.start) {
-    console.log('top')
-  }
-
-  if (y.end > y.start) {
-    console.log('bottom')
-    //allPieces[counter].moveBottom()
-  }
-
-  x.start = 0;
-  x.end = 0;
-
-})
-
-allPieces.forEach(piece => {
-  piece.addEventListener('click', function () {
-    piece.classList.add('move-bottom');
-  })
-})
-
-function moveBottom() {
-  sixPiece.classList.add('move-bottom');
+function swapCells(cell) {
+  var cellClassname = cell.className
+  cell.className = emptyCell.className
+  emptyCell.className = cellClassname
 }
 
-sixPiece.addEventListener('click', moveBottom)
+const state = {
+  1:[0, 0],
+  2:[0, 1],
+  3:[0, 2],
+  4:[1, 0],
+  5:[1, 1],
+  6:[1, 2],
+  7:[2, 0],
+  8:[2, 1],
+  0:[2, 2]
+}
+
+var stateEmpty = state[0]
+var state8 = state[8]
+
+var diffA = stateEmpty[0] - state8[0]
+var diffB = stateEmpty[1] - state8[1]
+console.log(diffA, diffB)
