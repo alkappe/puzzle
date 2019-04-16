@@ -6,7 +6,23 @@ var cell01 = document.querySelector('.cell-0-1')
 var emptyCell = document.querySelector('.cell-2-2')
 
 allPieces.forEach(cell => cell.addEventListener('click', function () {
-  swapCells(cell)
+
+  var cellId = cell.id
+  var stateEmpty = state[0]
+  var stateClicked = state[cellId]
+
+  console.log(stateEmpty, stateClicked)
+  var diffA = Math.abs(stateEmpty[0] - stateClicked[0])
+  var diffB = Math.abs(stateEmpty[1] - stateClicked[1])
+
+  var distance = diffA + diffB
+  console.log(distance)
+
+  if (distance === 1 ) {
+    swapCells(cell)
+    state[cell.id] = state[0]
+    state[0] = stateClicked
+  }
 }))
 
 function swapCells(cell) {
@@ -26,10 +42,3 @@ const state = {
   8:[2, 1],
   0:[2, 2]
 }
-
-var stateEmpty = state[0]
-var state8 = state[8]
-
-var diffA = stateEmpty[0] - state8[0]
-var diffB = stateEmpty[1] - state8[1]
-console.log(diffA, diffB)
