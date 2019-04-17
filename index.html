@@ -10,7 +10,7 @@
     * { margin: 0; bottom: 0 }
     html, body { background: #ffffff}
     #puzzle { background-image: linear-gradient(to right top, #0059df, #0092ff, #00b8d3, #00d37c, #b2e025); position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 282px; height: 280px; display: block; touch-action: none}
-    .cell { position: absolute; width: 33%; height: 33%; background: #ffffff; margin: 1px; text-align: center; color: #083d77; font-size: 24px; font-family: 'Oswald', sans-serif; font-weight: 200; }
+    .cell { transition: all 0.2s linear; transition-timing-function: ease; position: absolute; width: 32.5%; height: 32.6%; background: #ffffff; margin: 1px; text-align: center; color: #083d77; font-size: 24px; font-family: 'Oswald', sans-serif; font-weight: 200; }
     .empty { }
     .cell-0-0 { top:0 ; left: 0 }
     .cell-0-1 { top:0; left: 33% }
@@ -20,7 +20,8 @@
     .cell-1-2 { top:33% ; left: 66% }
     .cell-2-0 { top:66% ; left: 0 }
     .cell-2-1 { top:66% ; left: 33% }
-    .cell-2-2 { top:66% ; left: 66% }
+    .cell-2-2 { top:66% ; left: 66% ;}
+
   </style>
 </head>
 <body>
@@ -36,9 +37,10 @@
 
       <div class="cell cell-2-0" id="7" data-index="7">7</div>
       <div class="cell cell-2-1" id="8" data-index="8">8</div>
-      <div class="cell cell-2-2 empty" id="0" data-index="0"></div>
+      <div style="background: Transparent"class="cell cell-2-2 empty" id="0" data-index="0"></div>
     </div>
   </main>
   <script src="index.js"></script>
+  <script src="http://hammerjs.github.io/dist/hammer.min.js"></script>
 </body>
 </html>
