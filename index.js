@@ -4,9 +4,10 @@ var emptyCell = document.querySelector('.empty')
 var cell00 = document.querySelector('.cell-0-0')
 var cell01 = document.querySelector('.cell-0-1')
 var emptyCell = document.querySelector('.cell-2-2')
+var puzzleContainer = document.getElementById('puzzle-container')
+var play = document.querySelector('.play')
 
 allPieces.forEach(cell => cell.addEventListener('click', function () {
-
   var cellId = cell.id
   var stateEmpty = state[0]
   var stateClicked = state[cellId]
@@ -23,20 +24,16 @@ allPieces.forEach(cell => cell.addEventListener('click', function () {
     swapCells(cell)
     state[cell.id] = state[0]
     state[0] = stateClicked
+
     if(isCompleted()) {
-      console.log('display granchi')
+      setTimeout(function(){
+        youWin.style.display = 'inline'
+        text.style.display = 'inline'
+        puzzleContainer.style.display = 'none'
+        play.style.display = 'none'
+      }, 1500);
     }
   }
-
-
-  /*var hammertime = new Hammer(cellSwapable);
-
-  hammertime.on('swipe', function(ev) {
-    swapCells(cell)
-    console.log(ev)
-  })
-  hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL});*/
-
 
 }))
 
@@ -86,9 +83,9 @@ function isInFrontOf(pos1, pos2){
 
 /* 🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀 you-win page 🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀🦀
 * inspired by Wes Bos https://wesbos.com/courses/
-
+*/
 const youWin = document.querySelector('.you-win')
-const text = youWin.querySelector('h1')
+const text = youWin.querySelector('#crab-text')
 const walk = 100 //how is streched
 
 function shadow(e) {
@@ -104,9 +101,9 @@ function shadow(e) {
     50
    -50
   */
-  /*
-  const xWalk = Math.round((x / width * walk ) - (walk / 2)) || Math.round(e.beta);
-  const yWalk = Math.round((y / height * walk ) - (walk / 2)) || Math.round(e.gamma)
+
+  const xWalk = Math.round((x / width * walk ) - (walk / 2)) || Math.round(e.beta/5);
+  const yWalk = Math.round((y / height * walk ) - (walk / 2)) || Math.round(e.gamma/5)
 
   text.style.textShadow = `
     ${xWalk}px ${yWalk}px 0 rgba(206, 2, 43,0.7),
@@ -116,4 +113,4 @@ function shadow(e) {
 }
 
 youWin.addEventListener('mousemove', shadow)
-window.addEventListener('deviceorientation', shadow);*/
+window.addEventListener('deviceorientation', shadow);
