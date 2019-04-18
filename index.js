@@ -3,7 +3,7 @@ var emptyCell = document.querySelector('.empty')
 
 var cell00 = document.querySelector('.cell-0-0')
 var cell01 = document.querySelector('.cell-0-1')
-var emptyCell = document.querySelector('.cell-2-2')
+var emptyCell = document.getElementById('0')
 var puzzleContainer = document.getElementById('puzzle-container')
 var play = document.querySelector('.play')
 
@@ -44,15 +44,15 @@ function swapCells(cell) {
 }
 
 const state = [
-  [2, 2],
+  [2, 1],
   [0, 0],
   [0, 1],
   [0, 2],
   [1, 0],
-  [1, 1],
   [1, 2],
+  [2, 2],
   [2, 0],
-  [2, 1]
+  [1, 1]
 ]
 
 // se tutti gli elementi da 1 a 9 sono ordinati in modo
