@@ -102,8 +102,8 @@ function shadow(e) {
    -50
   */
   //normalize values
-  const xWalk = Math.round((x / width * walk ) - (walk / 2)) || Math.round(e.beta/5)
-  const yWalk = Math.round((y / height * walk ) - (walk / 2)) || Math.round(e.gamma/5)
+  const xWalk = Math.round((x / width * walk ) - (walk / 2)) || Math.round(e.beta/4)
+  const yWalk = Math.round((y / height * walk ) - (walk / 2)) || Math.round(e.gamma/4)
 
   text.style.textShadow = `
     ${xWalk}px ${yWalk}px 0 rgba(206, 2, 43,0.7),
