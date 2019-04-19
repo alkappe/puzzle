@@ -93,8 +93,8 @@ function shadow(e) {
   const { offsetWidth: width, offsetHeight: height } = youWin;
   let { offsetX: x, offsetY: y } = e;
   if (this !== e.target) {
-    x = x + e.target.offsetLeft;
-    y = y + e.target.offsetTop;
+    x = x + e.target.offsetLeft
+    y = y + e.target.offsetTop
   }
   /*
    100
@@ -102,15 +102,15 @@ function shadow(e) {
    -50
   */
   //normalize values
-  const xWalk = Math.round((x / width * walk ) - (walk / 2)) || Math.round(e.beta/5);
+  const xWalk = Math.round((x / width * walk ) - (walk / 2)) || Math.round(e.beta/5)
   const yWalk = Math.round((y / height * walk ) - (walk / 2)) || Math.round(e.gamma/5)
 
   text.style.textShadow = `
     ${xWalk}px ${yWalk}px 0 rgba(206, 2, 43,0.7),
     ${yWalk}px ${xWalk * -1}px 0 rgba(3, 206, 20,0.7),
     ${yWalk * -1}px ${xWalk}px 0 rgba(244, 238, 65,0.7)
-  `;
+  `
 }
 
 youWin.addEventListener('mousemove', shadow)
-window.addEventListener('deviceorientation', shadow);
+window.addEventListener('deviceorientation', shadow)
