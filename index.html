@@ -8,7 +8,7 @@
   <style>
     * { margin: 0; padding: 0}
     html, body { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; background: #000; overflow: hidden;}
-    #puzzle { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 320px; height: 320px; display: block; touch-action: none}
+    #puzzle { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -40%);  width: 320px; height: 320px; display: block; touch-action: none}
     .cell { transition: all 0.2s linear; transition-timing-function: ease; position: absolute; width: 32.6%; height: 32.6%; margin: 1px; text-align: center; color: #083d77; font-size: 24px; font-family: 'Oswald', sans-serif; font-weight: 200; }
     .empty { }
     .cell-0-0 { top:0 ; left: 0; }
@@ -21,7 +21,7 @@
     .cell-2-1 { top:66% ; left: 33%; }
     .cell-2-2 { top:66% ; left: 66%; }
     .play { position: fixed; z-index: 2; top: 0; width: 100%; height: auto; }
-    #low-txt { font-size: 60px; color: #fff; display: block; margin: 25px auto; text-align: center;}
+    #low-txt { font-size: 54px; color: #fff; display: block; margin: 25px auto; text-align: center;}
 
     .you-win {width: 100%; height: 100%; display:flex; justify-content: center; text-align: center; align-items: center; color:#000000; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -25%);}
     #crab-test { text-shadow: 10px 10px 0 rgba(0,0,0,1); font-size: 130px; text-align: center; margin: 30% auto; display: block}
@@ -72,6 +72,5 @@
     <h1 id="crab-text" contenteditable>🦀YOU<br> WIN!🦀</h1>
   </div>
   <script src="index.js"></script>
-  <script src="http://hammerjs.github.io/dist/hammer.min.js"></script>
 </body>
 </html>

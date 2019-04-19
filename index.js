@@ -70,7 +70,7 @@ function isCompleted() {
 
 console.log('is completed', isCompleted())
 
-// ritorna true se pos2 è piu avanti di pos1
+// return true se pos2 è piu avanti di pos1
 // false altrimenti
 function isInFrontOf(pos1, pos2){
   if(pos2[0] === pos1[0]){
@@ -86,7 +86,7 @@ function isInFrontOf(pos1, pos2){
 */
 const youWin = document.querySelector('.you-win')
 const text = youWin.querySelector('#crab-text')
-const walk = 100 //how is streched
+const walk = 100
 
 function shadow(e) {
 
@@ -101,7 +101,7 @@ function shadow(e) {
     50
    -50
   */
-
+  //normalize values
   const xWalk = Math.round((x / width * walk ) - (walk / 2)) || Math.round(e.beta/5);
   const yWalk = Math.round((y / height * walk ) - (walk / 2)) || Math.round(e.gamma/5)
 
